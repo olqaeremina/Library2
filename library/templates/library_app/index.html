@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap5 %}
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        h2 {
+            color: #2ecc71;
+        }
+
+        p {
+            color: #555;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Книги</h1>
+    {% for book in books %}
+        <div>
+            <h2> «{{ book.name }}»</h2>
+            <p> Авторы: {{ book.authors }}</p>
+            <p> Том: {{ book.chapter }}</p>
+            <p> Код ISBN: {{ book.isbn }}</p>
+            <p> Год издания: {{ book.publishing_year }}</p>
+            <p> Номер стеллажа: {{ book.shelf.number }}</p>
+            <p> Номер полки: {{ book.shelf_number }}</p>
+            <p> Количество экземпляров: {{ book.amount }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
